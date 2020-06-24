@@ -82,11 +82,11 @@ class RemoteComputerSkill(MycroftSkill):
             config = self.config_core.get("RemoteComputerSkill", {})
 
             if not config == {}:
-                ip_address = str(self.config.get("ip_address"))
-                port = int(self.config.get("port"))
-                user = str(self.config.get("user"))
-                user_password = str(self.config.get("user_password"))
-                sudo_password = str(self.config.get("sudo_password"))
+                ip_address = str(config.get("ip_address"))
+                port = int(config.get("port"))
+                user = str(config.get("user"))
+                user_password = str(config.get("user_password"))
+                sudo_password = str(config.get("sudo_password"))
 
             else:
                 ip_address = str(self.settings.get("ip_address"))
