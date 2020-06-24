@@ -111,9 +111,10 @@ class RemoteComputerSkill(MycroftSkill):
             self.speak_dialog("invalid", {"word": "I.P"})
             return
 
-        prompt_response = self.ask_yesno("ask.confirmation",
-                                         {"word": "shut down"})
-
+        # prompt_response = self.ask_yesno("ask.confirmation",
+        #                                  {"word": "shut down"})
+ 
+        prompt_response = "yes"
         if prompt_response == "yes":
             try:
                 client = paramiko.SSHClient()
@@ -134,7 +135,7 @@ class RemoteComputerSkill(MycroftSkill):
                     session.exec_command("shutdown /s")
 
                 else:
-                    session.exec_command("sudo -k shutdown -h now")
+                    session.exec_command("systemctl suspend -i")
 
                 stdin = session.makefile('wb', -1)
                 stdout = session.makefile('rb', -1)
