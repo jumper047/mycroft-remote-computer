@@ -135,11 +135,11 @@ class RemoteComputerSkill(MycroftSkill):
                     session.exec_command("shutdown /s")
 
                 else:
-                    session.exec_command("systemctl suspend -i")
+                    session.exec_command("sudo systemctl suspend -i")
 
                 stdin = session.makefile('wb', -1)
                 stdout = session.makefile('rb', -1)
-                stdin.write(sudo_password + '\n')
+                # stdin.write(sudo_password + '\n')
                 stdin.flush()
                 stdout.read()
 
